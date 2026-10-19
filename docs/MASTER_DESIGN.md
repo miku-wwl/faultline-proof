@@ -2,11 +2,13 @@
 ## Competition-grade Master Design & Execution Specification
 
 > **Tagline:** Fix the incident. Prove the recovery. Contain the risk.  
-> **Repository:** `miku-wwl/faultline-proof` (proposed; not yet created)  
+> **Repository:** `miku-wwl/faultline-proof` (existing local consumer repository; implementation not present at Phase 0 inspection)<br>
 > **Competition:** Vultr: Agent Rush Hackathon 2026 — *Blast Radius Zero: Safe Agent Execution on Vultr*  
 > **Authoring baseline:** 2026-10-19, NZDT  
 > **Spec status:** `DESIGN / PRE-KICKOFF` — not implementation evidence  
 > **Goal:** A compelling, working, publicly reachable, verifiably sandboxed **SRE incident remediation agent**, not a generic coding agent or sandbox framework.
+
+**2026-10-19 Phase 0 clarification:** [ADR-009](ADRs/ADR-009-TRIAL-EXECUTION-CONTRACT.md) freezes the exact candidate before approval and holds committed jobs until AIG success is confirmed. The [fixture specification](INCIDENT_FIXTURE_SPEC.md), [threat model](THREAT_MODEL.md), [requirements](REQUIREMENTS_TRACEABILITY.md) and [deployment runbook](DEPLOYMENT_RUNBOOK.md) resolve v1 implementation details. These are design contracts, not execution evidence; see the [Phase 0 report](PHASE_REPORTS/P0_DESIGN_REPORT.md).
 
 ---
 
@@ -103,9 +105,9 @@ An introductory banner with a predefined **Run Guided Incident Demo** link may o
 
 - **Fixture:** a small production-like Python FastAPI service with a controlled mock upstream; intentionally bad timeout/retry/backoff configuration induces recurring 503 responses under a deterministic request replay.
 - **Symptom:** elevated `/checkout/quote` 5xx, correlated upstream timeout/retry logs; `/health` remains responsive.
-- **Candidate repair:** model emits a narrow unified patch to `service/config.py` or a strictly allowlisted `service/retry_policy.py` (exact allowed paths frozen in manifest), reducing erroneous amplification or adjusting bounded retry policy; do not let model edit tests, runner or safety harness.
+- **Candidate repair:** v1 freezes one narrow unified patch to existing integer literals in `service/config.py` before approval (see fixture spec). Changes to retry implementation, tests, runner or safety harness are excluded.
 - **Baseline:** reproduce failure using scenario seed and fixed request stream.
-- **Candidate:** rebuild/run patched image in a separate disposable sandbox and replay **exactly equivalent** scenario; compare error rate, p95 latency, functional tests, health endpoints, and invariant checks.
+- **Candidate:** run the approved patched source on the same pinned base image in a separate disposable sandbox and replay **exactly equivalent** scenario; compare error rate, p95 latency, functional tests, health endpoints, and invariant checks.
 - **Success:** verifiable improvement meeting calibrated thresholds, zero disallowed changed files, no regression, clean lifecycle. Model must not be able to edit the verifier or fixture scenario definition.
 
 ### Incident B (mandatory, negative-policy path): `suspicious-log-injection`
@@ -188,11 +190,11 @@ Dependency (merge into existing project dependencies; do not overwrite them):
 ### Allowed AIG operation: `enqueue_incident_trial/1`
 
 - Compile exactly one Plan Action targeting an immutable **local incident-run queue**.
-- Strict fixed-flat tool schema: e.g. `run_id: UUID`, `fixture_id: fixed enum`, `scenario_digest: 64-char lowercase hex`, `trial_manifest_digest: 64-char lowercase hex`, `policy_profile: fixed known string`. Adapt exact field definitions to AIG ToolCapability limitations after inspecting the public API (closed flat object, no nested schemas, ≤16 required fields).
+- Strict fixed-flat tool schema: consumer `trial_id` (distinct from AIG `run_id`), fixture/scenario identities and digests, manifest digest and policy profile. Installed v0.2.0 supports bounded scalar fields and trusted string patterns, **not `enum`/`const`**. ADR-009 defines the exact closed six-field schema and semantic checks.
 - The trusted executor validates all identities again and performs **one short local durable queue insertion** under default 5-second executor budget. It returns a receipt **only proving queue admission** (not completed remediation).
 - The effect store atomically binds **AIG effect key + complete payload digest + receipt id + job id**, enforcing uniqueness. Same key/payload returns the original recorded receipt; same key/different payload fails; unproven commit becomes `Unknown` with **no automatic redispatch**.
 - Dispatch runs through **Plan → persistent Run → actual authenticated human Approval → Action admission → independent Authorization → durable claim → short enqueue effect → queue receipt**. Two separate human steps can be present in UI; never treat a model or scripted sample as a real approver.
-- **After the receipt**, the product-owned sandbox worker independently runs the longer bounded experimental workflow (not claimed as AIG steps), storing its own immutable timeline and separate job result. This worker cannot invent authority beyond the signed/verified exact trial manifest.
+- **After confirmed AIG success**, a trusted releaser verifies the public Action state and exact queue receipt before changing a committed job from HELD to READY. The product-owned worker independently runs the longer bounded experiment, with its own timeline/result. A lost-acknowledgment/Unknown Action must not release a held job. The worker cannot change the verified approved manifest; no signing claim is made in v1.
 - The short AIG operation MUST NOT await the 30–180-second sandbox job. It must not launch detached work inside the AIG executor. The **trusted worker process** polls a separately durable product job queue.
 - If AIG Action is `Unknown`, perform **read-only status inspection**; do not auto-create another AIG Action or blindly retry the enqueue. If a worker crashes after dispatch, classify the job `INCONCLUSIVE / UNKNOWN`, quarantine resources, inspect and clean safely; never auto-repeat an uncertain effect.
 
@@ -222,7 +224,7 @@ At the bottom of root `AGENTS.md`, append concise references:
 
 ### Product run states
 
-`DRAFT → PLANNED → AWAITING_APPROVAL → APPROVED → AWAITING_AUTHORIZATION → AUTHORIZED → QUEUED → PREPARING → BASELINE_RUNNING → PATCH_PROPOSED → CANDIDATE_RUNNING → VERIFYING → CLEANING → {PROVEN_FOR_SCENARIO | REJECTED | INCONCLUSIVE}`
+`DRAFT → PATCH_PROPOSED → PLANNED → AWAITING_APPROVAL → APPROVED → AWAITING_AUTHORIZATION → AUTHORIZED → HELD → READY → PREPARING → BASELINE_RUNNING → CANDIDATE_RUNNING → VERIFYING → CLEANING → {PROVEN_FOR_THIS_SCENARIO | REJECTED | INCONCLUSIVE}`
 
 - Every state transition persists a monotonic per-run sequence and timestamp.
 - Terminals are immutable, unless a clearly documented **new run** is created. An abandoned worker lease becomes `INCONCLUSIVE`, not a silent replay.
@@ -231,12 +233,12 @@ At the bottom of root `AGENTS.md`, append concise references:
 
 ### Fixed workflow (not unrestricted model tools)
 
-1. **Analyze:** retrieve bounded fixture logs and incident metadata; LLM returns structured root-cause hypothesis / proposed patch intent.
-2. **Approve:** human reviews exact plan + bounded patch paths + trusted target, then explicitly approves and separately authorizes enqueue.
+1. **Analyze:** retrieve bounded fixture logs and incident metadata; Vultr LLM proposes an exact bounded candidate patch. Trusted code validates its bytes and freezes the manifest before the persistent AIG Plan is created.
+2. **Approve:** human reviews exact Plan + actual candidate diff + immutable manifest + trusted target, then explicitly approves and separately authorizes enqueue.
 3. **Queue:** AIG's single trusted executor inserts one exact, fingerprinted job with durable receipt.
 4. **Baseline:** trusted runner starts a clean fixture and runs the frozen reproduction test, saving original metrics and evidence.
-5. **Patch:** model returns a bounded unified diff against the fixture allowlist. Validate file paths, content size, hunk shape, forbidden files and fixture digest. **Reject invalid patch rather than executing unknown shell commands.**
-6. **Candidate:** runner creates another isolated candidate container, applies patch, executes trusted tests and the same probe script; if a predictable syntax/test failure occurs, permit at most **one** model-guided revision (bounded by deadline/budget).
+5. **Patch:** materialize only the already approved diff against the frozen source. Recheck paths, literal-config shape and tree hashes. **No new patch generation or replacement inside an approved trial.**
+6. **Candidate:** runner creates a separate isolated candidate container and runs the same trusted tests/probe. A failed candidate remains visible; any model-guided revision requires a new trial, Run, Approval and Authorization.
 7. **Verify:** deterministic evaluator compares requests, status codes, error counts, p95, invariant tests, patch scope, sandbox metrics, isolated env and cleanup claims. Explain delta with LLM only after hard evaluation.
 8. **Clean:** terminate containers, remove network and temporary job workspace, verify observed cleanup; persist lifecycle receipts.
 9. **Publish:** Evidence Passport with explicit evidence grades, limits, patch, replay settings, result, and a *human review required* deployment recommendation.
@@ -297,17 +299,19 @@ Per run, store the *raw sample sizes* and conditions; metrics without denominato
 - `patch_scoped`: all edits constrained to allowlist, harness digests intact.
 - `containment_observed`, `cleanup_observed`: pass only on direct, persisted trusted checks.
 
-The initial proposed sample (calibrate using real fixture runs, do not hardcode to make a fixed candidate pass):
+The Phase 0 targets (qualify before candidate evaluation; see the complete fixture specification):
 
-- Baseline at least 100 probes, >= 20% 5xx/failed requests.
-- Candidate at least 100 comparable probes, <= 1% 5xx/failed requests.
+- Baseline exactly 200 quote probes, >= 20% failed requests and retry amplification >=1.5.
+- Candidate exactly 200 comparable quote probes, <= 1% failed requests and amplification <=1.30.
 - No known healthy endpoint regression; `pytest` expected cases all pass.
-- p95 under a documented scenario-specific bound, with fixed concurrency/seed.
+- Candidate p95 <=350 ms, with fixed open-loop traffic, seed and independent upstream measurements. Targets are NOT observed results.
 
 ### Deterministic decision (illustrative)
 
 ```python
 def trial_verdict(e):
+    if e.proven_policy_or_security_violation:
+        return "REJECTED"
     if not e.evidence_complete or not e.cleanup_observed:
         return "INCONCLUSIVE"
     if not e.baseline_reproduced or not e.scenarios_equivalent:
@@ -315,7 +319,7 @@ def trial_verdict(e):
     if not e.patch_scoped or not e.security_controls_passed:
         return "REJECTED"
     if e.candidate_recovered and e.no_regressions and e.tests_passed:
-        return "PROVEN_FOR_SCENARIO"
+        return "PROVEN_FOR_THIS_SCENARIO"
     return "REJECTED"
 ```
 
@@ -330,19 +334,19 @@ def trial_verdict(e):
   "fixture": {"id": "retry-storm-503", "revision": "v1", "source_sha256": "...", "image_digest": "..."},
   "scenario": {"id": "replay-v1", "seed": 1024, "probe_spec_sha256": "..."},
   "governance": {"plan_digest": "...", "approval_event_id": "...", "authorization_event_id": "...", "aig_enqueue_receipt_id": "..."},
-  "model": {"provider": "Vultr Serverless Inference", "model_id": "actual-response-model-id", "request_count": 2},
+  "model": {"provider": "Vultr Serverless Inference", "model_id": null, "request_count": null},
   "execution": {"baseline_container_id": "...", "candidate_container_id": "...", "sandbox_profile": "isolated-v1"},
-  "baseline": {"requests": 100, "errors": 36, "p95_ms": 0},
-  "candidate": {"requests": 100, "errors": 0, "p95_ms": 0},
-  "patch": {"sha256": "...", "changed_paths": ["service/retry_policy.py"]},
-  "guards": {"patch_scope": "PASS", "host_marker": "PASS", "timeout": "NOT_RUN", "cleanup": "PASS"},
+  "baseline": {"status": "NOT RUN", "requests": null, "errors": null, "p95_ms": null},
+  "candidate": {"status": "NOT RUN", "requests": null, "errors": null, "p95_ms": null},
+  "patch": {"sha256": "...", "changed_paths": ["service/config.py"]},
+  "guards": {"patch_scope": "NOT RUN", "host_marker": "NOT RUN", "timeout": "NOT RUN", "cleanup": "NOT RUN"},
   "artifacts": [{"kind": "baseline_log", "sha256": "...", "relative_path": "logs/baseline.txt"}],
-  "decision": "PROVEN_FOR_SCENARIO",
+  "decision": "NOT RUN",
   "limitations": ["No production deployment", "One fixed scenario; no universal security proof"]
 }
 ```
 
-**The numbers above are purely illustrative schema examples, never real benchmark claims.**
+**This is a schema illustration, not an execution manifest or benchmark. Actual identity/digest values must come from execution; absent metrics are null, never fabricated zeros.**
 
 Compute artifact SHA-256 over actual bytes and a canonical manifest digest. If adding a trusted signer, document key custody, signature verification, and exact threat model. A plain hash alone does **not** prove the host did not lie or that isolation is cryptographically attested.
 
@@ -430,7 +434,7 @@ Keep private AIG DB separate. Document schema migrations. No automatic queue rep
 
 **Model selection:** discovery-based configuration; perform live tests for JSON validity, patch-quality and observed response model ID. Never pin an unverified advertised model name or silently fall back to another provider. A model call to a non-Vultr provider in the shipped agent flow is a compliance failure.
 
-**Cost protection:** at most 1 simultaneous interactive trial per demo user, fixed max global concurrency (initially 2), token cap, bounded retries, VM and inference budgets with hard server-owned ceilings; exact amounts set from live pricing before provisioning.
+**Cost protection:** one global active trial in v1, token/request caps, no automatic model retries, and server-owned admission ceilings. Actual provider billing caps/alerts and prices must be verified before provisioning; local caps are not a guaranteed provider hard spend stop.
 
 ---
 
@@ -528,7 +532,7 @@ Deliverable: frozen concept, source links, validated AIG API limitations, contes
 
 - Vultr model diagnosis + bounded candidate diff; closed patch validator.
 - Real user approval and separate authorization; AIG durable queue receipt under 5s.
-- Trusted worker executes actual baseline/candidate; one bounded repair revision if needed.
+- Trusted worker executes actual baseline/candidate using the approved frozen patch; revisions require a fresh trial and consent.
 - **Gate:** end-to-end execution produces actual diff, tests and raw comparison; AIG receipt never conflated with remediation verdict.
 
 ### P3 — Containment + recovery fault injection (Nov 6–7)
@@ -592,9 +596,9 @@ Cut in this order: extra incident C → fancy animation → PDF export (keep JSO
 
 **00:25–01:00 — Diagnosis and governance.** Ask model to triage. Show actual Vultr call provenance, review the changed paths and plan digest. Click **Approve Plan** then **Authorize Trial**; explain these are distinct decisions.
 
-**01:00–02:05 — The executed repair.** Start sandbox job. Show real baseline replay 5xx, model-generated diff, test stderr if first attempt fails, bounded recovery loop, and candidate probe results.
+**01:00–02:05 — The executed repair.** Start the approved sandbox job. Show real baseline replay 5xx, the frozen model-generated diff, test output and candidate probe results. A failed candidate is retained; a revised patch needs a new trial and consent. Use the detailed timing in `docs/DEMO_SCRIPT.md` for recording.
 
-**02:05–02:50 — Counterfactual evidence.** Split-screen baseline versus patched candidate, fixed seed/test specification, numerator/denominator, p95, regression checks and `PROVEN_FOR_SCENARIO` (only if actually measured).
+**02:05–02:50 — Counterfactual evidence.** Split-screen baseline versus patched candidate, fixed seed/test specification, numerator/denominator, p95, regression checks and `PROVEN_FOR_THIS_SCENARIO` (only if actually measured).
 
 **02:50–03:35 — Containment moment.** Trigger the prepared benign synthetic host-marker read attempt or controlled infinite-loop case inside isolated sandbox. Show failure/termination plus VM host-marker integrity and lifecycle cleanup evidence. Never run destructive host-side commands.
 
@@ -622,7 +626,7 @@ Cut in this order: extra incident C → fancy animation → PDF export (keep JSO
 - The repo uses a previously released MIT Python AIG runtime. Attribute its author/repo/release/pinned commit and document unchanged external-core functionality separately from hackathon-built product features.
 - Keep a `docs/ORIGINALITY_AND_REUSE.md` table with columns: component, original source/date, existing vs competition-developed, license, evidence link.
 - Do not transplant code wholesale from other entries or rely on an unlicensed third-party repo.
-- Review the official rule book/organizer clarification if pre-existing reusable runtime eligibility remains uncertain. If not permitted, remove the competing submission's dependency rather than hide reused code; redesign governance accordingly.
+- Review the official rule book/organizer clarification if pre-existing reusable runtime eligibility remains uncertain. If not permitted, stop and report the conflict: root AGENTS mandates the pinned AIG dependency. Removing it or redesigning governance requires explicit separately reviewed authorization; never hide reused code.
 
 ---
 

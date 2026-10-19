@@ -1,0 +1,137 @@
+{
+  "date_context": "2026-10-19 Pacific/Auckland",
+  "kind": "documentation-schema-and-installed-dependency-inspection",
+  "python": "3.13.14",
+  "interpreter": "D:\\workshop\\oct\\pactlens\\.venv\\Scripts\\python.exe",
+  "distribution": "0.2.0",
+  "direct_url": {
+    "url": "https://github.com/miku-wwl/agentic-intent-gate",
+    "vcs_info": {
+      "vcs": "git",
+      "commit_id": "7261fdd2f47d2b15fabe8faac527eeee37338eb1",
+      "requested_revision": "7261fdd2f47d2b15fabe8faac527eeee37338eb1"
+    }
+  },
+  "runtime_import": "D:\\workshop\\oct\\pactlens\\.venv\\Lib\\site-packages\\agentic_intent_gate\\runtime.py",
+  "record_hashes_verified": 57,
+  "schema_utf8_bytes": 788,
+  "structural_plans_accepted": 2,
+  "malformed_document_plans_rejected": {
+    "extra_argument": true,
+    "wrong_tool": true,
+    "wrong_target": true,
+    "wrong_scenario": true,
+    "non_uuid4_trial": true,
+    "wrong_policy": true,
+    "wrong_digest": true,
+    "second_step": true
+  },
+  "unsupported_enum_rejected": true,
+  "not_run": [
+    "open_runtime",
+    "Action admission/authorization/execution",
+    "consumer semantic rule/store lookup",
+    "queue/worker/concurrency/restart",
+    "sandbox/replay",
+    "inference/cloud/deployment"
+  ],
+  "source_retrievals": [
+    {
+      "id": "event",
+      "url": "https://lablab.ai/ai-hackathons/vultr-hackathon",
+      "http_status": 200,
+      "bytes": 1493306,
+      "sha256": "a64440e10d256bbd0fc03f07f9f520475172f297d735839fe8cda149c45112f0"
+    },
+    {
+      "id": "live",
+      "url": "https://lablab.ai/ai-hackathons/vultr-hackathon/live",
+      "http_status": 200,
+      "bytes": 187724,
+      "sha256": "55b5bc1554d127663b0f0c31119054f38bb85629d337fe9d410ab1efc7b31917"
+    },
+    {
+      "id": "general-guidelines",
+      "url": "https://lablab.ai/ai-articles/hackathon-guidelines",
+      "http_status": 200,
+      "bytes": 148717,
+      "sha256": "573732b647b55f47ace35cdbb4564b5f3cd59270101383efa5fce465d4e9598f"
+    },
+    {
+      "id": "general-reuse-guide",
+      "url": "https://lablab.ai/guide/ai-hackathons",
+      "http_status": 200,
+      "bytes": 157342,
+      "sha256": "81caf5cceb690c3b4c0d7f9254d584e960f97c8304cc015a74f71abfde1fa8ba"
+    },
+    {
+      "id": "rule-book",
+      "url": "https://lablab.ai/hackathon-rules",
+      "http_status": 200,
+      "bytes": 26829,
+      "sha256": "a42b00caa1b3add7dda72049bd5074fd6523182f008165d39200d9d0b2626b4b"
+    },
+    {
+      "id": "vultr-python",
+      "url": "https://docs.vultr.com/how-to-use-vultr-serverless-inference-in-python",
+      "http_status": 200,
+      "bytes": 261277,
+      "sha256": "32661389ce29d22c7d695ef741ef415bfb97193b4bedf0625327b8e4d9785182"
+    }
+  ],
+  "documentation_checks": {
+    "markdown_files": 13,
+    "new_markdown_files": 10,
+    "local_file_links_checked": 29,
+    "json_fences_parsed": 3,
+    "git_diff_check_exit_code": 0,
+    "protected_files": {
+      "AGENTS.md": {
+        "sha256": "15c96562f4f12cb0498ccf0da04c95b519ac9d602f08c22b2fdcd440d7e69c99",
+        "unchanged": true
+      },
+      "README.md": {
+        "sha256": "f8a46db842ceec4ff3e46d4c9e1c9f6178a13a1fa607a1128c212a31788083f6",
+        "unchanged": true
+      }
+    },
+    "schedule_and_budget": {
+      "kickoff_auckland": "2026-11-04T04:00:00+13:00",
+      "submission_auckland": "2026-11-09T11:00:00+13:00",
+      "window_hours": 127.0,
+      "timezone_source": "Windows TimeZoneInfo: New Zealand Standard Time (DST applied)",
+      "focused_phase_hours": 46,
+      "contingency_hours": 10
+    },
+    "secret_shape_scan": "PASS (bounded patterns; not a complete secret audit)",
+    "errors": [],
+    "status": "PASS"
+  },
+  "document_sha256": {
+    "docs/ADRs/ADR-009-TRIAL-EXECUTION-CONTRACT.md": "49783b142289c2bf49cf9a54f0a901b94087ba6907432dd19de3342137e8aaf0",
+    "docs/AIG_VERSION_DECISION.md": "2f24bc44d5a5ccb8aaea8fece2487eeec4101126a779bf8c53b64f7ad72ce1ce",
+    "docs/DEMO_SCRIPT.md": "0d7490dbe8449936fe82a192f14087a778516626a96ca5052453c5687d153ddf",
+    "docs/DEPLOYMENT_RUNBOOK.md": "9abd0738e060b33120a714c2852eb7946040ab4859764d26c1d9d819fee576a5",
+    "docs/INCIDENT_FIXTURE_SPEC.md": "b1be2db867cc33bef8d4989fa3c74d212672577a6be7ddb58ad124ac9b221f5d",
+    "docs/MASTER_DESIGN.md": "3aeb140bd8c26640706205b51a82ae091aa528c05e22fb9f4caaaa253322bc97",
+    "docs/ORIGINALITY_AND_REUSE.md": "fd311788cb824bfbcb42d72bbfac2a54aca5999b9c1c5dab02acfac898fc6635",
+    "docs/PHASE_REPORTS/evidence/P0_DESIGN_INSPECTION.md": "4e3f2cd42048d4d18dded31e905d2d80e52f47c577db74c2295e157a73370b95",
+    "docs/PHASE_REPORTS/P0_DESIGN_REPORT.md": "eba3807159facb8025029e0b1de9377483e715b9ff12fbf3c1577e78c51567c8",
+    "docs/REQUIREMENTS_TRACEABILITY.md": "90bedc459d477d9be95806283864a828bf9199522e25237ce98dfe0423feb27c",
+    "docs/THREAT_MODEL.md": "d671bf5febe270807f292e13e37e241baca7bc134f568a103662415bf8849ed9"
+  },
+  "git_status_before_validation_record_write": [
+    " M docs/MASTER_DESIGN.md",
+    "?? docs/ADRs/ADR-009-TRIAL-EXECUTION-CONTRACT.md",
+    "?? docs/AIG_VERSION_DECISION.md",
+    "?? docs/DEMO_SCRIPT.md",
+    "?? docs/DEPLOYMENT_RUNBOOK.md",
+    "?? docs/INCIDENT_FIXTURE_SPEC.md",
+    "?? docs/ORIGINALITY_AND_REUSE.md",
+    "?? docs/PHASE_REPORTS/P0_DESIGN_REPORT.md",
+    "?? docs/PHASE_REPORTS/evidence/P0_DESIGN_INSPECTION.md",
+    "?? docs/PHASE_REPORTS/evidence/P0_DOCUMENT_VALIDATION.json",
+    "?? docs/REQUIREMENTS_TRACEABILITY.md",
+    "?? docs/THREAT_MODEL.md"
+  ]
+}
