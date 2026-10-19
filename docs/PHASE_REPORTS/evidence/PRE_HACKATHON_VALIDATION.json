@@ -1,0 +1,127 @@
+{
+  "schema": "pre-hackathon-artifact-validation-v1",
+  "checked_at_utc": "2026-10-19T10:37:13.435682+00:00",
+  "status": "PASS",
+  "checks": {
+    "only_expected_tracked_paths_changed": true,
+    "only_expected_new_paths": true,
+    "head_unchanged": true,
+    "index_empty": true,
+    "no_product_directories": true,
+    "git_diff_check": true,
+    "all_other_tracked_files_unchanged": true,
+    "markdown_fences_links_json_and_changed_whitespace": true,
+    "bounded_secret_shape_scan": true,
+    "cost_worksheet_arithmetic": true,
+    "aig_qualified": true,
+    "docker_qualified": true,
+    "command_checks_pass": true
+  },
+  "markdown_files_checked": 17,
+  "local_file_links_checked": 74,
+  "json_fences_parsed": 4,
+  "changed_json_files_parsed": 8,
+  "expected_changed_files": [
+    ".env.example",
+    ".gitignore",
+    ".python-version",
+    "docs/AIG_VERSION_DECISION.md",
+    "docs/COMPETITION_READINESS.md",
+    "docs/DEPLOYMENT_RUNBOOK.md",
+    "docs/ORIGINALITY_AND_REUSE.md",
+    "docs/PHASE_REPORTS/PRE_HACKATHON_READINESS_REPORT.md",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_AIG.json",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_COMMANDS.json",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_DOCKER.json",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_DOCKER_ATTEMPT_1.json",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_DOCKER_ATTEMPT_2.json",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_ENVIRONMENT.json",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_PUBLIC_CATALOGS.json",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_REFERENCES.json",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_VALIDATION.json",
+    "docs/REQUIREMENTS_TRACEABILITY.md",
+    "docs/VULTR_ACCOUNT_CHECKLIST.md",
+    "docs/VULTR_RESOURCE_AND_COST_PLAN.md",
+    "pyproject.toml",
+    "scripts/preflight/docker_smoke.py",
+    "scripts/preflight/environment.py",
+    "scripts/preflight/verify_aig.py",
+    "uv.lock"
+  ],
+  "protected_tracked_files": {
+    "AGENTS.md": {
+      "git_blob_matches_head": true,
+      "working_bytes_sha256": "15c96562f4f12cb0498ccf0da04c95b519ac9d602f08c22b2fdcd440d7e69c99"
+    },
+    "README.md": {
+      "git_blob_matches_head": true,
+      "working_bytes_sha256": "f8a46db842ceec4ff3e46d4c9e1c9f6178a13a1fa607a1128c212a31788083f6"
+    },
+    "docs/ADRs/ADR-009-TRIAL-EXECUTION-CONTRACT.md": {
+      "git_blob_matches_head": true,
+      "working_bytes_sha256": "49783b142289c2bf49cf9a54f0a901b94087ba6907432dd19de3342137e8aaf0"
+    },
+    "docs/DEMO_SCRIPT.md": {
+      "git_blob_matches_head": true,
+      "working_bytes_sha256": "0d7490dbe8449936fe82a192f14087a778516626a96ca5052453c5687d153ddf"
+    },
+    "docs/INCIDENT_FIXTURE_SPEC.md": {
+      "git_blob_matches_head": true,
+      "working_bytes_sha256": "b1be2db867cc33bef8d4989fa3c74d212672577a6be7ddb58ad124ac9b221f5d"
+    },
+    "docs/MASTER_DESIGN.md": {
+      "git_blob_matches_head": true,
+      "working_bytes_sha256": "3aeb140bd8c26640706205b51a82ae091aa528c05e22fb9f4caaaa253322bc97"
+    },
+    "docs/PHASE_REPORTS/P0_DESIGN_REPORT.md": {
+      "git_blob_matches_head": true,
+      "working_bytes_sha256": "bc4b8da4e2e12519f22a63b739719e5a69ddd7a8206469015a37ece041907221"
+    },
+    "docs/PHASE_REPORTS/evidence/P0_DESIGN_INSPECTION.md": {
+      "git_blob_matches_head": true,
+      "working_bytes_sha256": "4e3f2cd42048d4d18dded31e905d2d80e52f47c577db74c2295e157a73370b95"
+    },
+    "docs/PHASE_REPORTS/evidence/P0_DOCUMENT_VALIDATION.json": {
+      "git_blob_matches_head": true,
+      "working_bytes_sha256": "7e6569368052f43848d633eb74389d1d9a2e6585b2ccba27fee4fde1e4d86225"
+    },
+    "docs/THREAT_MODEL.md": {
+      "git_blob_matches_head": true,
+      "working_bytes_sha256": "d671bf5febe270807f292e13e37e241baca7bc134f568a103662415bf8849ed9"
+    }
+  },
+  "errors": [],
+  "secret_shape_hits": [],
+  "artifact_sha256": {
+    ".env.example": "a9360541d5274808f63dd5dc50c3d90d6c4dfc8356c58c4fdabd3c1098f5ccfe",
+    ".gitignore": "e1b633f93165b81a0c9e359de96fe41a3829ac21d8b3193cb81a53ee5369cb38",
+    ".python-version": "6388dd213929792fb622424feab43c41be73739cf33c96b8fc3eef2537c45481",
+    "docs/AIG_VERSION_DECISION.md": "3389d6dabf7935151b622180cb822df2cd5de4f4a5aabe595292e9dd98bc3e72",
+    "docs/COMPETITION_READINESS.md": "5fefc20bb9de9954e0c0f9eaa4ebee8d962058f672f1aec6e695679465677fca",
+    "docs/DEPLOYMENT_RUNBOOK.md": "3a1387f12b00fbf6eb63677c98e556704ff6f314f99b48df80268a535fef0c05",
+    "docs/ORIGINALITY_AND_REUSE.md": "83c2edf05faf5350ef3f4c2c8349ad2aaec3e85bae0818b1cbbf0d21bce2eeb9",
+    "docs/PHASE_REPORTS/PRE_HACKATHON_READINESS_REPORT.md": "f8e56d202dbc2a2d147f0f7bc83bbbbcbce325965a7d7586e299ad35daa80007",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_AIG.json": "36b15dcc311142f5fb39aeb7d0ff77b90b378883190f0a225524539d83436f30",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_COMMANDS.json": "76816723488cba0c527d70c90709cabda61d4951e2eb898c3f7296089538fc20",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_DOCKER.json": "a2f934f278ec77acdecbb0bfef27cd4b47400a30593652778bcc4fff01a66344",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_DOCKER_ATTEMPT_1.json": "61264a2fa6fa000bb4aa1c61ca1412eb18cabc21cedec69883c1b6278ddc5742",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_DOCKER_ATTEMPT_2.json": "939f05f89c42f757d652c04037c1b1d139eead4553ccbe8352944028322fabe1",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_ENVIRONMENT.json": "ab703f0813a1e97163ffdd8382cc4bfd5edb9332630a9c7085ce388003701a9d",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_PUBLIC_CATALOGS.json": "7adbd59159c9026f3fb77a482d16dfbb12262877a1bec7604c52270e4e9ae652",
+    "docs/PHASE_REPORTS/evidence/PRE_HACKATHON_REFERENCES.json": "0fa62c7188f43299002d58a197483e57f248c597914fe77f2eed28a0693f1d5d",
+    "docs/REQUIREMENTS_TRACEABILITY.md": "b54e49ad1acfa0d80365e78d9d1a98e5d7f47be2fba2fb5959b8e4552623b626",
+    "docs/VULTR_ACCOUNT_CHECKLIST.md": "87193934407cdcc55b1aff9f140b63014ce9759e2386b3152aed1a79213d68b5",
+    "docs/VULTR_RESOURCE_AND_COST_PLAN.md": "23f06bdfad0247b77027b4e121533aa402a0dd1a23cc98adf3c0ca9f0f670768",
+    "pyproject.toml": "83d92ae4edf231e4a955ba1faebfdb06fef39018876b72877ddc16eb81fd5055",
+    "scripts/preflight/docker_smoke.py": "d5273c6cb735ae670533fe84b5c60cdb4043824bc3dc52e6cd6ad85b067ad1b6",
+    "scripts/preflight/environment.py": "55154ac250415f39d06f09f851bdc174ddab79b4926c7128b88adba6af590748",
+    "scripts/preflight/verify_aig.py": "b456a8043ffbbb833c89a7e0ea02f42173213b12f5b3937dbe85e4dd93fac806",
+    "uv.lock": "db14e39559fcdae7f522b2e6d9685c631643b985e909a66f55f8a2dd4b6ddd04"
+  },
+  "self_hash_excluded": true,
+  "limits": [
+    "Structural Markdown check, not browser/PDF visual validation.",
+    "Bounded secret-shape scan, not a complete secret audit.",
+    "No product, cloud, HTTPS, live inference or containment acceptance implied."
+  ]
+}

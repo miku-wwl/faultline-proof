@@ -1,0 +1,159 @@
+{
+  "schema": "readiness-command-evidence-v1",
+  "checked_at_utc": "2026-10-19T10:32:45.733234+00:00",
+  "commands": [
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--offline",
+        "--link-mode",
+        "copy"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.161,
+      "output": "Resolved 24 packages in 22ms\nChecked 23 packages in 6ms\n"
+    },
+    {
+      "command": [
+        "uv",
+        "lock",
+        "--check",
+        "--offline"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.054,
+      "output": "Resolved 24 packages in 2ms\n"
+    },
+    {
+      "command": [
+        "uv",
+        "pip",
+        "check",
+        "--python",
+        ".venv/Scripts/python.exe"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.085,
+      "output": "Checked 23 packages in 5ms\nAll installed packages are compatible\n"
+    },
+    {
+      "command": [
+        "ruff",
+        "check",
+        "scripts/preflight"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.049,
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": [
+        "ruff",
+        "format",
+        "--check",
+        "scripts/preflight"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.044,
+      "output": "3 files already formatted\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.061,
+      "output": "warning: in the working copy of 'docs/AIG_VERSION_DECISION.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/DEPLOYMENT_RUNBOOK.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/ORIGINALITY_AND_REUSE.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/REQUIREMENTS_TRACEABILITY.md', LF will be replaced by CRLF the next time Git touches it\n"
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--offline",
+        "--link-mode",
+        "copy"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.981,
+      "output": "Using CPython 3.13.9 interpreter at: D:\\anaconda3\\python.exe\nCreating virtual environment at: .local\\lock-repro-92ea0190-b712-4f79-9142-fcb8be1c5d51\nResolved 24 packages in 3ms\nInstalled 23 packages in 840ms\n + agentic-intent-gate==0.2.0 (from git+https://github.com/miku-wwl/agentic-intent-gate.git@7261fdd2f47d2b15fabe8faac527eeee37338eb1)\n + annotated-doc==0.0.5\n + annotated-types==0.8.0\n + anyio==4.15.1\n + attrs==26.1.0\n + certifi==2026.10.18\n + click==8.5.0\n + fastapi==0.147.0\n + h11==0.16.0\n + httpcore==1.0.9\n + httpx==0.28.1\n + idna==3.20\n + jsonschema==4.26.0\n + jsonschema-specifications==2025.9.1\n + opentelemetry-api==1.45.1\n + pydantic==2.14.1\n + pydantic-core==2.50.1\n + referencing==0.37.0\n + rpds-py==2026.9.1\n + starlette==1.9.0\n + typing-extensions==4.16.0\n + typing-inspection==0.4.4\n + uvicorn==0.54.0\n"
+    },
+    {
+      "command": [
+        "<clean-env-python>",
+        "-I",
+        "-c",
+        "import sys,json,importlib.metadata as m; from pathlib import Path; import agentic_intent_gate.runtime as r; assert sys.version_info[:2]==(3,13); assert m.version('agentic-intent-gate')=='0.2.0'; d=json.loads(m.distribution('agentic-intent-gate').read_text('direct_url.json')); assert d['vcs_info']['commit_id']=='7261fdd2f47d2b15fabe8faac527eeee37338eb1'; assert Path(r.__file__).resolve().is_relative_to(Path(sys.prefix).resolve()); print('CLEAN_LOCKED_ENV=PASS; INSTALLED_PUBLIC_IMPORT=PASS')"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.694,
+      "output": "CLEAN_LOCKED_ENV=PASS; INSTALLED_PUBLIC_IMPORT=PASS\n"
+    },
+    {
+      "command": [
+        "uv",
+        "pip",
+        "check",
+        "--python",
+        "<clean-env>\\Scripts\\python.exe"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.731,
+      "output": "Using Python 3.13.9 environment at: .local\\lock-repro-92ea0190-b712-4f79-9142-fcb8be1c5d51\nChecked 23 packages in 682ms\nAll installed packages are compatible\n"
+    },
+    {
+      "command": [
+        "D:\\workshop\\oct\\faultline-proof\\.venv\\Scripts\\python.exe",
+        "-I",
+        "scripts/preflight/docker_smoke.py",
+        "--context",
+        "desktop-linux",
+        "--image",
+        "alpine:latest",
+        "--output",
+        ".local/must-not-exist.json"
+      ],
+      "exit_code": 2,
+      "elapsed_seconds": 0.159,
+      "output": "usage: docker_smoke.py [-h] --context CONTEXT --image IMAGE --output OUTPUT\ndocker_smoke.py: error: Use an immutable official Alpine image digest, never a mutable tag\n"
+    },
+    {
+      "command": [
+        "git",
+        "ls-remote",
+        "https://github.com/miku-wwl/agentic-intent-gate.git",
+        "refs/tags/v0.2.0",
+        "refs/tags/v0.2.0^{}"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 6.053,
+      "output": "b193d38a4804725d44ca536a3bd9778679cc7b4c\trefs/tags/v0.2.0\n7261fdd2f47d2b15fabe8faac527eeee37338eb1\trefs/tags/v0.2.0^{}\n"
+    }
+  ],
+  "checks": {
+    "clean_locked_environment": true,
+    "preflight_python_syntax": true,
+    "mutable_image_rejected_before_docker": true,
+    "refusal_created_no_evidence_or_resources": true,
+    "ignored_.env": true,
+    "ignored_.env.production": true,
+    "ignored_.local/private-canary": true,
+    "ignored_.venv/private-canary": true,
+    "ignored_private.key": true,
+    "ignored_state.sqlite3": true,
+    "env_example_not_ignored": true,
+    "annotated_tag_object": true,
+    "peeled_release_commit": true,
+    "clean_install_environment_removed": true
+  },
+  "status": "PASS",
+  "release_tag": {
+    "refs/tags/v0.2.0": "b193d38a4804725d44ca536a3bd9778679cc7b4c",
+    "refs/tags/v0.2.0^{}": "7261fdd2f47d2b15fabe8faac527eeee37338eb1"
+  },
+  "lock_sha256": "db14e39559fcdae7f522b2e6d9685c631643b985e909a66f55f8a2dd4b6ddd04"
+}

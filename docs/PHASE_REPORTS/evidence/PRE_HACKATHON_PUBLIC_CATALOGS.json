@@ -1,0 +1,447 @@
+{
+  "schema": "public-provider-catalog-evidence-v1",
+  "kind": "unauthenticated public GET only; no personal account data or paid inference",
+  "sources": [
+    {
+      "url": "https://api.vultrinference.com/v1/models",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-19T10:19:41.378619+00:00",
+      "saved_response_sha256": "d8d8f660e959a2e30eac09166064545b796503a4797b3fb54c2913561f0d32e4"
+    },
+    {
+      "url": "https://api.vultr.com/v2/plans?type=all",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-19T10:19:40.516236+00:00",
+      "saved_response_sha256": "06d1a8468d8142f17a6b87a8fe6a161b30a126654580d7251199ce90e91f3719"
+    },
+    {
+      "url": "https://api.vultr.com/v2/regions",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-19T10:19:39.678748+00:00",
+      "saved_response_sha256": "afd04ca8748d2a0732cd456f2b3e6fdff3cbe7c66aa5cfbfbb50b80c2a48b6d0"
+    },
+    {
+      "url": "https://api.vultr.com/v2/regions/syd/availability?type=vhp",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-19T10:24:12.048297+00:00",
+      "saved_response_sha256": "84aa4f42c32db0c34278eea951939e9e9dffdbd1245eb8751ad702004a5cb180"
+    },
+    {
+      "url": "https://api.vultr.com/v2/regions/mel/availability?type=vc2",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-19T10:24:10.926069+00:00",
+      "saved_response_sha256": "b641c76ccbce0c9d3e6a4a77d555d0889cfe8d73573cae4da68bd462abe1251a"
+    }
+  ],
+  "plans": [
+    {
+      "id": "vc2-4c-8gb",
+      "vcpu_count": 4,
+      "ram": 8192,
+      "disk": 160,
+      "disk_type": "SSD",
+      "bandwidth": 4096,
+      "monthly_cost": 40,
+      "hourly_cost": 0.055,
+      "invoice_type": "monthly",
+      "type": "vc2",
+      "locations": [
+        "ewr",
+        "ord",
+        "dfw",
+        "sea",
+        "lax",
+        "atl",
+        "ams",
+        "lhr",
+        "fra",
+        "sjc",
+        "syd",
+        "yto",
+        "cdg",
+        "nrt",
+        "waw",
+        "mad",
+        "icn",
+        "mia",
+        "sgp",
+        "sto",
+        "mex",
+        "sao",
+        "mel",
+        "bom",
+        "jnb",
+        "tlv",
+        "blr",
+        "del",
+        "scl",
+        "itm",
+        "man"
+      ],
+      "cpu_vendor": "Intel",
+      "location_cost": {
+        "sao": {
+          "monthly_cost": 60,
+          "hourly_cost": 0.082,
+          "monthly_cost_preemptible": 60,
+          "hourly_cost_preemptible": 0.082
+        }
+      }
+    },
+    {
+      "id": "vhp-2c-4gb-amd",
+      "vcpu_count": 2,
+      "ram": 4096,
+      "disk": 100,
+      "disk_type": "AMDHIGHPERF",
+      "bandwidth": 5120,
+      "monthly_cost": 24,
+      "hourly_cost": 0.033,
+      "invoice_type": "monthly",
+      "type": "vhp",
+      "locations": [
+        "ewr",
+        "ord",
+        "dfw",
+        "sea",
+        "lax",
+        "atl",
+        "ams",
+        "lhr",
+        "fra",
+        "sjc",
+        "syd",
+        "yto",
+        "cdg",
+        "nrt",
+        "waw",
+        "mad",
+        "icn",
+        "mia",
+        "sgp",
+        "sto",
+        "mex",
+        "sao",
+        "mel",
+        "bom",
+        "jnb",
+        "tlv",
+        "blr",
+        "del",
+        "scl",
+        "itm",
+        "man"
+      ],
+      "cpu_vendor": "AMD",
+      "location_cost": {
+        "sao": {
+          "monthly_cost": 36,
+          "hourly_cost": 0.049,
+          "monthly_cost_preemptible": 36,
+          "hourly_cost_preemptible": 0.049
+        }
+      }
+    },
+    {
+      "id": "vhp-4c-8gb-amd",
+      "vcpu_count": 4,
+      "ram": 8192,
+      "disk": 180,
+      "disk_type": "AMDHIGHPERF",
+      "bandwidth": 6144,
+      "monthly_cost": 48,
+      "hourly_cost": 0.066,
+      "invoice_type": "monthly",
+      "type": "vhp",
+      "locations": [
+        "ewr",
+        "ord",
+        "dfw",
+        "sea",
+        "lax",
+        "atl",
+        "ams",
+        "lhr",
+        "fra",
+        "sjc",
+        "syd",
+        "yto",
+        "cdg",
+        "nrt",
+        "waw",
+        "mad",
+        "icn",
+        "mia",
+        "sgp",
+        "sto",
+        "mex",
+        "sao",
+        "mel",
+        "bom",
+        "jnb",
+        "tlv",
+        "blr",
+        "del",
+        "scl",
+        "itm",
+        "man"
+      ],
+      "cpu_vendor": "AMD",
+      "location_cost": {
+        "sao": {
+          "monthly_cost": 72,
+          "hourly_cost": 0.099,
+          "monthly_cost_preemptible": 72,
+          "hourly_cost_preemptible": 0.099
+        }
+      }
+    }
+  ],
+  "regions": [
+    {
+      "id": "mel",
+      "city": "Melbourne",
+      "country": "AU",
+      "continent": "Australia",
+      "options": [
+        "ddos_protection",
+        "block_storage_storage_opt",
+        "load_balancers",
+        "kubernetes"
+      ],
+      "connectivity": [
+        "public_ip",
+        "nat_gateway"
+      ]
+    },
+    {
+      "id": "syd",
+      "city": "Sydney",
+      "country": "AU",
+      "continent": "Australia",
+      "options": [
+        "ddos_protection",
+        "block_storage_high_perf",
+        "load_balancers",
+        "kubernetes"
+      ],
+      "connectivity": [
+        "public_ip",
+        "nat_gateway"
+      ]
+    }
+  ],
+  "public_capacity": [
+    {
+      "region": "syd",
+      "type": "vhp",
+      "plan": "vhp-4c-8gb-amd",
+      "listed_at_check_time": true
+    },
+    {
+      "region": "mel",
+      "type": "vc2",
+      "plan": "vc2-4c-8gb",
+      "listed_at_check_time": true
+    }
+  ],
+  "model_catalog_count": 26,
+  "models": [
+    {
+      "id": "minimax-m3",
+      "name": "MiniMax M3",
+      "quantization": "fp8",
+      "max_context_length": {
+        "value": 524288,
+        "unit": "token"
+      },
+      "catalog_output_max_length": {
+        "value": 524288,
+        "unit": "token"
+      },
+      "input_pricing": [
+        {
+          "type": "prompt",
+          "unit": "token",
+          "cost_usd": "0.0000002"
+        }
+      ],
+      "output_pricing": [
+        {
+          "type": "completion",
+          "unit": "token",
+          "cost_usd": "0.0000009"
+        }
+      ],
+      "supported_parameters": {
+        "max_tokens": {
+          "type": "integer",
+          "min": 1,
+          "max": 524288,
+          "unit": "token"
+        },
+        "response_format": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "enum",
+              "values": [
+                "text",
+                "json_object",
+                "json_schema"
+              ]
+            }
+          }
+        },
+        "structured_outputs": {
+          "type": "boolean"
+        },
+        "tools": {
+          "type": "boolean"
+        },
+        "reasoning": {
+          "type": "object",
+          "properties": {
+            "effort": {
+              "type": "enum",
+              "values": [
+                "ultra",
+                "max",
+                "xhigh",
+                "high",
+                "medium",
+                "low",
+                "minimal"
+              ]
+            },
+            "max_tokens": {
+              "type": "integer",
+              "min": 1,
+              "unit": "token"
+            }
+          }
+        }
+      },
+      "reasoning": {
+        "mandatory": false,
+        "default_effort": null,
+        "default_enabled": null,
+        "supported_efforts": [
+          "ultra",
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low",
+          "minimal"
+        ],
+        "supports_max_tokens": true
+      },
+      "datacenters": [
+        {
+          "country_code": "US",
+          "region": "sea"
+        }
+      ]
+    },
+    {
+      "id": "qwen3.8-27b",
+      "name": "Qwen 3.8 27B",
+      "quantization": "fp8",
+      "max_context_length": {
+        "value": 262144,
+        "unit": "token"
+      },
+      "catalog_output_max_length": {
+        "value": 262144,
+        "unit": "token"
+      },
+      "input_pricing": [
+        {
+          "type": "prompt",
+          "unit": "token",
+          "cost_usd": "0.00000015"
+        }
+      ],
+      "output_pricing": [
+        {
+          "type": "completion",
+          "unit": "token",
+          "cost_usd": "0.000001"
+        }
+      ],
+      "supported_parameters": {
+        "max_tokens": {
+          "type": "integer",
+          "min": 1,
+          "max": 262144,
+          "unit": "token"
+        },
+        "response_format": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "enum",
+              "values": [
+                "text",
+                "json_object",
+                "json_schema"
+              ]
+            }
+          }
+        },
+        "structured_outputs": {
+          "type": "boolean"
+        },
+        "tools": {
+          "type": "boolean"
+        },
+        "reasoning": {
+          "type": "object",
+          "properties": {
+            "effort": {
+              "type": "enum",
+              "values": [
+                "ultra",
+                "max",
+                "xhigh",
+                "high",
+                "medium",
+                "low",
+                "minimal"
+              ]
+            },
+            "max_tokens": {
+              "type": "integer",
+              "min": 1,
+              "unit": "token"
+            }
+          }
+        }
+      },
+      "reasoning": {
+        "mandatory": false,
+        "default_effort": null,
+        "default_enabled": null,
+        "supported_efforts": [
+          "ultra",
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low",
+          "minimal"
+        ],
+        "supports_max_tokens": true
+      },
+      "datacenters": [
+        {
+          "country_code": "US",
+          "region": "sea"
+        }
+      ]
+    }
+  ],
+  "account_access_or_capacity_reservation": "UNVERIFIED",
+  "inference_connectivity_or_quality": "NOT RUN"
+}

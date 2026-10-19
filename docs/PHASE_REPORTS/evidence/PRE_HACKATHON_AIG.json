@@ -1,0 +1,43 @@
+{
+  "schema": "aig-installed-dependency-preflight-v1",
+  "checked_at_utc": "2026-10-19T10:31:43.841181+00:00",
+  "status": "PASS",
+  "python": "3.13.9",
+  "distribution_version": "0.2.0",
+  "direct_url": {
+    "url": "https://github.com/miku-wwl/agentic-intent-gate",
+    "vcs_info": {
+      "vcs": "git",
+      "commit_id": "7261fdd2f47d2b15fabe8faac527eeee37338eb1",
+      "requested_revision": "7261fdd2f47d2b15fabe8faac527eeee37338eb1"
+    }
+  },
+  "import_location_relative_to_project": ".venv/Lib/site-packages/agentic_intent_gate/runtime.py",
+  "checks": {
+    "python_3_13": true,
+    "project_local_venv": true,
+    "version_0_2_0": true,
+    "direct_git_commit": true,
+    "direct_https_url": true,
+    "installed_site_packages_import": true,
+    "manifest_exact_pin": true,
+    "lock_exact_pin": true,
+    "public_exports": true,
+    "default_five_seconds": true,
+    "installed_record_hashes": true
+  },
+  "record_hash_count": 57,
+  "record_mismatches": [],
+  "public_signatures": {
+    "ToolBinding": "(tool_name: str, tool_version: str, adapter_id: str, binding_revision: str, target: str, execution_scope: str) -> None",
+    "ToolCapability": "(binding: agentic_intent_gate.application.action_compiler.ToolBinding, description: str, input_schema: collections.abc.Mapping, target_argument: str | None = None, semantic_rule: collections.abc.Callable | None = None) -> None",
+    "ExecutableRegistry": "(executor=None, *, binding=None)",
+    "CapabilityVerifier": "(token=None, *, subject_id=None, binding=None, operations=())",
+    "BoundCapabilityAuthorization": "(verifier: agentic_intent_gate.infrastructure.security.local_capability.CapabilityVerifier, *, policy_revision: str)",
+    "open_runtime": "(*, gate_path, provider, capability, registry, verifier, policy, predecessor_stopped=False, execution_timeout_seconds=5)",
+    "execution_budget_binding": "(binding, execution_timeout_seconds)"
+  },
+  "lock_sha256": "db14e39559fcdae7f522b2e6d9685c631643b985e909a66f55f8a2dd4b6ddd04",
+  "product_adapter": "NOT IMPLEMENTED",
+  "runtime_action_execution": "NOT RUN"
+}

@@ -1,6 +1,6 @@
 # AIG version decision — retain v0.2.0
 
-Date: 2026-10-19, Pacific/Auckland. Status: **DESIGN VERIFIED; consumer installation NOT RUN**.
+Date: 2026-10-19, Pacific/Auckland. Status: **PINNED PROJECT INSTALLATION VERIFIED; product integration and cloud execution NOT RUN**.
 
 ## Decision and evidence
 
@@ -14,9 +14,9 @@ Read-only `git ls-remote` returned annotated tag object `b193d38a4804725d44ca536
 
 The release [package manifest](https://github.com/miku-wwl/agentic-intent-gate/blob/7261fdd2f47d2b15fabe8faac527eeee37338eb1/pyproject.toml) specifies version `0.2.0`, Python `>=3.13,<3.14`, MIT, and FastAPI/httpx/jsonschema/uvicorn dependencies. The [license](https://github.com/miku-wwl/agentic-intent-gate/blob/7261fdd2f47d2b15fabe8faac527eeee37338eb1/LICENSE) names Weilai Wang, 2026. This is a Git release; do not substitute a guessed PyPI artifact.
 
-An **existing installed environment in another consumer** was inspected read-only with isolated Python (`-I` in the retained verification): `D:\workshop\oct\pactlens\.venv\Scripts\python.exe`, Python 3.13.14. Distribution metadata reports `0.2.0`; `direct_url.json` reports the full pinned Git commit; the import resolves to that environment's `Lib/site-packages/agentic_intent_gate/runtime.py`. All 57 hashed RECORD entries match; `uv pip check --python <that interpreter>` passes. No packages or files in that other consumer were changed.
+During the original Phase 0 review, an **existing installed environment in another consumer** was inspected read-only with isolated Python (`-I` in the retained verification): `D:\workshop\oct\pactlens\.venv\Scripts\python.exe`, Python 3.13.14. Its version, direct-Git metadata, 57 RECORD hashes and dependency check passed. That historical design inspection is retained in [P0 evidence](PHASE_REPORTS/evidence/P0_DESIGN_INSPECTION.md); no packages or files in that other consumer were changed.
 
-This proves availability and signatures of an installed release for design inspection. It **does not** prove a Faultline dependency installation, lock resolution, integration, or cloud execution. Faultline currently has no `pyproject.toml`, `uv.lock`, `.venv`, application or tests. Create its dependency manifest/lock only in the authorized implementation window and reverify the installation there.
+The separately authorized **pre-hackathon readiness sprint** now created Faultline's own `.python-version`, `pyproject.toml`, `uv.lock` and ignored `.venv`. Python 3.13.9, locked synchronization, `uv pip check`, exact installed `0.2.0`/full direct-Git SHA, isolated `site-packages` imports, public signatures/default five-second budget and all 57 installed RECORD hashes pass. See [current installation evidence](PHASE_REPORTS/evidence/PRE_HACKATHON_AIG.json) and the [readiness report](PHASE_REPORTS/PRE_HACKATHON_READINESS_REPORT.md). This is dependency preparation only: no Faultline adapter, Plan/Run/Approval/Authorization, queue, worker or cloud execution has been implemented or tested. The historical Phase 0 absence of an environment is superseded by this dated evidence, without rewriting its original report.
 
 ## References actually inspected
 

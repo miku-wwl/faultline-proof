@@ -1,0 +1,64 @@
+{
+  "schema": "pre-hackathon-reference-checks-v1",
+  "verification_date_client": "2026-10-19",
+  "client_timezone": "Pacific/Auckland",
+  "browser_inventory": {
+    "apps": 0,
+    "browsers": 0,
+    "method": "cua.getState",
+    "account_login_or_authenticated_account_calls": "NOT RUN"
+  },
+  "personal_account_or_registration_status": "UNVERIFIED; USER_ACTION_REQUIRED",
+  "schedule": {
+    "source": "https://lablab.ai/ai-hackathons/vultr-hackathon/live",
+    "start_utc": "2026-11-03T15:00:00+00:00",
+    "cutoff_utc": "2026-11-08T22:00:00+00:00",
+    "start_nzdt": "2026-11-04T04:00:00+13:00",
+    "cutoff_nzdt": "2026-11-09T11:00:00+13:00",
+    "window_hours": 127,
+    "method": "official explicit milestone text; UTC+13 conversion for these dates"
+  },
+  "public_event": {
+    "source": "https://lablab.ai/ai-hackathons/vultr-hackathon",
+    "required_backend": "Vultr VM",
+    "required_agent_inference": "Vultr Serverless Inference",
+    "required_sandbox_location": "Vultr; outside application process",
+    "team_size": [
+      1,
+      6
+    ],
+    "original_mit_compliant_submission": true,
+    "credit_offer_usd": 200,
+    "coupon": "PENDING_PUBLICATION_IN_PUBLIC_PAGE",
+    "personal_credit_balance": "UNVERIFIED",
+    "event_schedule_details": "TBA"
+  },
+  "general_reuse": {
+    "source": "https://lablab.ai/guide/ai-hackathons",
+    "existing_open_source_libraries": "GENERALLY ALLOWED",
+    "core_ai_functionality": "event window, subject to event rules",
+    "aig_risk": "LOW — Pending Event-Specific Confirmation",
+    "organizer_approval": "NOT OBTAINED"
+  },
+  "rule_book": {
+    "source": "https://lablab.ai/hackathon-rules",
+    "method": "embedded __NEXT_DATA__ MDX compiledSource inspected as text, not executed",
+    "saved_html_sha256": "a42b00caa1b3add7dda72049bd5074fd6523182f008165d39200d9d0b2626b4b",
+    "form_and_event_precedence": true,
+    "specific_aig_permission_or_prohibition": "NOT IDENTIFIED"
+  },
+  "repository": {
+    "source": "https://api.github.com/repos/miku-wwl/faultline-proof",
+    "saved_response_sha256": "26f43b378beec227f004a67fa8aeeda0fe75e82870e7228eedb865991980ed6c",
+    "full_name": "miku-wwl/faultline-proof",
+    "private": false,
+    "visibility": "public",
+    "default_branch": "main",
+    "license_detected_by_github": null
+  },
+  "limitations": [
+    "Public catalog/repository/rules checks are not account verification.",
+    "No paid inference, provisioning, DNS changes, publication or submission.",
+    "Local container controls do not prove Vultr containment."
+  ]
+}

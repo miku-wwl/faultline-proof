@@ -2,6 +2,8 @@
 
 Verified on 2026-10-19, Pacific/Auckland. **Design preparation only.** `CONFIRMED` below describes a retrieved source, not product compliance. Every product runtime acceptance test is **NOT RUN**.
 
+Later on the same date, the authorized [pre-hackathon readiness sprint](PHASE_REPORTS/PRE_HACKATHON_READINESS_REPORT.md) qualified a project-local pinned Python/AIG environment and generic local Docker controls. It rechecked public schedule/rules/catalogs; these local checks do not satisfy the cloud/product acceptance gates below. The current dependency state is in [AIG version decision](AIG_VERSION_DECISION.md).
+
 ## Official sources and open eligibility gates
 
 | ID | Requirement / finding | Source and authority | Status |

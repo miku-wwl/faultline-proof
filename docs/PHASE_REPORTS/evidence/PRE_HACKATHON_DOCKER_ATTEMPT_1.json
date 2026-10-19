@@ -1,0 +1,80 @@
+{
+  "schema": "generic-docker-capability-preflight-v1",
+  "scope": "5a41a92e-eb89-4f87-8585-e78eb43959a6",
+  "checked_at_utc": "2026-10-19T10:22:08.202194+00:00",
+  "image": "alpine@sha256:85fe1e81d6758c208f3e1eed4338a1997e19d4be002d4dd32d3100c9a8c010a0",
+  "context": "desktop-linux",
+  "checks": {
+    "readonly_root_config": true,
+    "nonroot_config": true,
+    "network_none": true,
+    "cpu_limit_config": true,
+    "memory_limit_config": true,
+    "pids_limit_config": true,
+    "capabilities_dropped": true,
+    "no_new_privileges_config": true,
+    "no_privileged_or_host_namespaces": true,
+    "only_disposable_readonly_bind": true,
+    "no_published_ports": true,
+    "observed_uid": true,
+    "observed_bind_write": false,
+    "observed_tmpfs_write": false,
+    "observed_docker_socket": false,
+    "observed_cap_eff": false,
+    "observed_no_new_privs": false,
+    "observed_seccomp": false,
+    "observed_memory_max": false,
+    "observed_swap_max": false,
+    "observed_pids_max": false,
+    "observed_cpu_max": false,
+    "observed_interfaces": false,
+    "observed_external_tcp": false,
+    "observed_ready": false,
+    "observed_readonly_root": true,
+    "termination_observed": true,
+    "marker_unchanged": true,
+    "cleanup_no_owned_containers": true,
+    "preexisting_container_ids_preserved": true,
+    "cleanup_scratch_absent": true
+  },
+  "status": "FAIL",
+  "cloud_containment": "NOT RUN",
+  "stress_or_escape_tests": "NOT RUN",
+  "events": [
+    "create_requested",
+    "started",
+    "stop_requested",
+    "owned_container_removed"
+  ],
+  "daemon": {
+    "ServerVersion": "29.8.0",
+    "OSType": "linux",
+    "Architecture": "x86_64",
+    "KernelVersion": "6.6.114.1-microsoft-standard-WSL2",
+    "OperatingSystem": "Docker Desktop",
+    "CgroupVersion": "2",
+    "CgroupDriver": "cgroupfs",
+    "NCPU": 16,
+    "MemTotal": 16401907712,
+    "SecurityOptions": [
+      "name=seccomp,profile=builtin",
+      "name=cgroupns"
+    ]
+  },
+  "preexisting_container_count": 10,
+  "local_image_id": "sha256:85fe1e81d6758c208f3e1eed4338a1997e19d4be002d4dd32d3100c9a8c010a0",
+  "container_id": "f5258d4c8d24a70efe980babbb9c734e3de23b700fe4d23e02f18640af36a5cf",
+  "observed_inside_container": {
+    "uid": "65534",
+    "root_options": "ro,relatime"
+  },
+  "stop_elapsed_seconds": 0.185,
+  "terminal_state": {
+    "Running": false,
+    "ExitCode": 1,
+    "OOMKilled": false
+  },
+  "remaining_owned_containers": [],
+  "redaction": "Overlay backend paths omitted",
+  "failure_explanation": "Windows CRLF in host marker did not match the LF-only shell comparison; controls and cleanup remained applied"
+}
