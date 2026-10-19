@@ -1,10 +1,14 @@
 # Phase 0 — Architecture validation, design freeze and readiness
 
+### Dated compliance correction — 2026-10-19
+
+The A-01 `BLOCKING` label below records the original Phase 0 assessment and is **superseded**. The published lablab.ai general guide generally permits pre-existing open-source libraries and non-AI scaffolding, while directing teams to each event's rules. The reviewed Vultr Agent Rush sources require originality and MIT compliance but show no explicit prohibition of the unchanged, attributed AIG dependency. Current classification: **LOW — Pending Event-Specific Confirmation**, without claiming guaranteed eligibility or organizer approval. Organizer clarification is optional additional assurance, not a prerequisite for bounded infrastructure preparation. This correction is reflected in [ORIGINALITY_AND_REUSE.md](../ORIGINALITY_AND_REUSE.md), [REQUIREMENTS_TRACEABILITY.md](../REQUIREMENTS_TRACEABILITY.md) and [DEPLOYMENT_RUNBOOK.md](../DEPLOYMENT_RUNBOOK.md). Historical findings remain visible below.
+
 Date: 2026-10-19, Pacific/Auckland. Authorized work: research, inspection and documentation only. **Overall: PARTIAL.** Design deliverables and the recorded document checks are complete; event-specific dependency eligibility and all live infrastructure/product gates remain unresolved. This is not future P0 infrastructure acceptance.
 
 ## Architecture verdict
 
-**Conditionally feasible**, if the existing AIG dependency is eligible, Vultr account/model access is available, P1 qualifies the timing fixture, and scope stays at one reviewed config candidate and one active trial. Plan for 46 focused hours plus 10 contingency within 127 elapsed event hours. No implementation or measured recovery exists yet. The evidence-led SRE replay thesis is preserved; a broad autonomous code fixer, Kubernetes platform or multi-model agent would threaten the deadline.
+**Feasible within the event window with controlled scope**, assuming account/model access and P1 fixture qualification. The reuse question is low risk under the published general guidance, remains subject to event-specific rules, and does not by itself block bounded infrastructure preparation. Plan for 46 focused hours plus 10 contingency within 127 elapsed event hours. No implementation or measured recovery exists yet. The evidence-led SRE replay thesis is preserved; a broad autonomous code fixer, Kubernetes platform or multi-model agent would threaten the deadline.
 
 Keep AIG v0.2.0 at `7261fdd2f47d2b15fabe8faac527eeee37338eb1` unchanged and default five seconds. Its single governed effect is queue admission, not experiment completion. [AIG decision](../AIG_VERSION_DECISION.md) records release/tag/installed API checks and the absence of a Faultline manifest/lock. There is no demonstrated core blocker warranting an upgrade.
 
@@ -14,7 +18,7 @@ Two necessary design closures: exact candidate patch/manifest frozen **before** 
 
 | ID / severity | Existing gap and impact | Resolution / remaining gate |
 |---|---|---|
-| A-01 BLOCKING | Pre-existing AI runtime and preparation eligibility not explicitly qualified for this event | O-07 organizer question retained; no competition implementation before permitted window; no organizer message sent |
+| A-01 BLOCKING | **Historical original rating, superseded by the dated correction above:** pre-existing AI runtime and preparation eligibility not explicitly qualified for this event | Current rating LOW — Pending Event-Specific Confirmation; general reuse guidance supports preparation with attribution; event rules remain authoritative; organizer clarification optional |
 | A-02 HIGH | Patch generation/revision after approval leaves executable content unreviewed | ADR-009 freezes exact diff and manifest first; revisions need a new trial and fresh consent |
 | A-03 HIGH | COMMIT may precede lost ACK/AIG Unknown; eager worker could still execute | HELD/READY release protocol using public `gateway.get`; fault tests required before live trials |
 | A-04 HIGH | “Worker lease expiry” lacks safe ownership/lifecycle recovery | Stable epoch, intent-before-Docker-call, no automatic takeover, quarantine and deliberate cleanup |
@@ -31,11 +35,11 @@ Two necessary design closures: exact candidate patch/manifest frozen **before** 
 | A-15 MEDIUM | Plain hashes/signatures can be oversold as independent attestation | ZIP internal-integrity verifier plus explicit trusted-host limit; signing/PDF cut |
 | A-16 LOW | Master called repository uncreated and suggested removing mandatory AIG if ineligible | Corrected local-state description and stop/report policy conflict; no remote changes |
 
-“Resolved” here means design semantics closed, not implementation security verified. Highest residuals are A-01, A-06, A-08, A-03/A-04 and A-11: eligibility, reproducible replay, actual containment, ambiguous distributed state and real provider access.
+“Resolved” here means design semantics closed, not implementation security verified. Highest current residuals are A-06, A-08, A-03/A-04 and A-11: reproducible replay, actual containment, ambiguous distributed state and real provider access. A-01 retains its historical BLOCKING value for audit only; it is no longer an active blocker.
 
 ## Competition verification
 
-[Requirements/source matrix](../REQUIREMENTS_TRACEABILITY.md) records the official event/live pages, general guidance and unresolved questions. Explicit milestone conversion: Nov 4 04:00 NZDT kickoff, Nov 9 11:00 NZDT cutoff; internal target Nov 8 20:00 NZDT. Detailed overview schedule remains TBA; use live milestone text, not its zero countdown. Video size/duration are general guidance pending actual event form. No registration, residency/prize eligibility, account credit, reuse permission or final form was verified for this participant.
+[Requirements/source matrix](../REQUIREMENTS_TRACEABILITY.md) records the official event/live pages, general guidance and unresolved questions. Explicit milestone conversion: Nov 4 04:00 NZDT kickoff, Nov 9 11:00 NZDT cutoff; internal target Nov 8 20:00 NZDT. Detailed overview schedule remains TBA; use live milestone text, not its zero countdown. Video size/duration are general guidance pending actual event form. No registration, residency/prize eligibility, account credit, event-specific reuse confirmation or final form was verified for this participant.
 
 The public competitor descriptions were read, not treated as completed products. Differentiation must rest on SRE incident replay and measured retry/SLO evidence; generic patch-and-proof branding alone overlaps existing team ideas. [Reuse record](../ORIGINALITY_AND_REUSE.md) separates AIG's Oct 13 release from future competition work and plans exact MIT attribution.
 
@@ -69,7 +73,7 @@ The installed-package inspection is **not** a Faultline install: own manifest/lo
 
 Design ready: one governed effect; public API composition/signatures; flat bounded schema; stable binding/scope; exact reviewed manifest; queue transaction/receipt; held-job release; no redispatch after uncertainty; private human controls/public reader; fixed replay/evaluator; trusted measurements; testable containment, lifecycle and artifact provenance.
 
-Infrastructure P0 remains gated by allowed build timing, event-specific reuse clarification, explicit VM/inference/cost authorization, account/credentials, region/SKU/live prices, domain/operator setup and actual Linux/cgroup/model qualification. These do not block completing this documentation task, but prohibit a claim of runtime readiness. Stop here; no automatic phase advancement.
+Infrastructure preparation is not blocked solely by the pending AIG reuse confirmation. Infrastructure creation and paid inference still require operation-specific authorization, allowed timing, account access, a reviewed region/SKU/live price, domain/operator setup and actual Linux/cgroup/model qualification. If event rules change or explicitly prohibit this dependency, reassess before competition submission. These limits prohibit a claim of runtime readiness. Stop here; no automatic phase advancement.
 
 ## Next phase and copy-ready execution prompt
 
@@ -80,7 +84,7 @@ Use Codex Sol with Extra High effort in VS Code. Execute only Faultline Proof P0
 
 Read root AGENTS.md, docs/MASTER_DESIGN.md, docs/AIG_VERSION_DECISION.md, docs/REQUIREMENTS_TRACEABILITY.md, docs/DEPLOYMENT_RUNBOOK.md, docs/THREAT_MODEL.md, docs/ADRs/ADR-009-TRIAL-EXECUTION-CONTRACT.md and docs/PHASE_REPORTS/P0_DESIGN_REPORT.md; inspect Git state first.
 
-Reverify current official event/live rules, allowed implementation window and a recorded organizer answer covering unchanged pre-existing MIT AIG. If eligibility/timing remains unresolved, complete only permitted local/read-only readiness work and report the exact blocker. Do not bypass or remove AIG.
+Reverify current official event/live rules and the permitted implementation window. The published general guidance generally allows pre-existing open-source libraries and non-AI scaffolding, subject to event rules; current AIG reuse risk is LOW — Pending Event-Specific Confirmation. Organizer clarification is optional and is not a prerequisite for bounded infrastructure preparation. If official rules explicitly conflict, report the conflict and follow root AGENTS. Do not hide, bypass or remove AIG.
 
 Prepare the smallest concrete Vultr VM/region/SKU/HTTPS/model connectivity plan with live prices, resource expiry, private credential handling and total cost estimate. This prompt authorizes local preparation and read-only research; it does not authorize billable calls, provisioning or deployment. Obtain an explicit resource/call-specific user approval of the final proposal and cost ceiling before those operations. Do not ask for approval of an unspecified plan.
 

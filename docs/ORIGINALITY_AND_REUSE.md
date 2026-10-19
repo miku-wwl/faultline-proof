@@ -1,6 +1,6 @@
 # Originality, reuse and pre-kickoff boundary
 
-Date: 2026-10-19. Status: **Preparation record; event-specific reuse eligibility UNVERIFIED**.
+Date: 2026-10-19. Status: **LOW — Pending Event-Specific Confirmation**. This is a risk rating, not an event approval or guaranteed eligibility.
 
 Faultline builds the incident product and reuses unchanged AIG for consent-bound queue admission. AIG is not presented as new competition work. Competition functionality must begin only in the allowed window, with the root AGENTS phase boundary and separate authorization respected.
 
@@ -21,9 +21,11 @@ Do not copy AIG internal modules, source execution mechanisms or its developer-o
 
 ## Eligibility interpretation
 
-The [official event](https://lablab.ai/ai-hackathons/vultr-hackathon) requires originality and MIT compliance. The [general guide](https://lablab.ai/guide/ai-hackathons) discusses reuse subject to each event. This is **not** an event-specific approval of this pre-existing AI runtime. [Rule book](https://lablab.ai/hackathon-rules) also does not supply a located AIG-specific or prebuild exception. Questions and status are tracked as O-07 in [requirements](REQUIREMENTS_TRACEABILITY.md).
+The [published lablab.ai general guidance](https://lablab.ai/guide/ai-hackathons) says pre-existing open-source libraries and prior non-AI scaffolding are generally allowed, while the core AI-powered functionality is generally built during the event window; it explicitly directs participants to check each event's own rules. AIG fits the general category of an existing MIT-licensed infrastructure dependency: it supplies bounded Plan validation, approvals and execution governance, while Faultline's incident diagnosis, remediation candidate, replay, sandbox worker, evaluation and Evidence Passport are the competition-specific product to build during the permitted window.
 
-No organizer contact, enrollment, terms acceptance or license publication occurred in Phase 0. Preserve a written organizer answer before making an eligibility claim. If reuse is disallowed, stop and report the conflict to the user: root AGENTS mandates unchanged pinned AIG. Do not remove it, replace governance or hide reuse without an explicit separately reviewed change to that mandate.
+The [Vultr Agent Rush page](https://lablab.ai/ai-hackathons/vultr-hackathon) requires original, MIT-compliant submissions, but the reviewed published sources do not identify an explicit rule prohibiting this pinned AIG reuse, nor do they provide explicit organizer approval. Therefore the active risk is **LOW — Pending Event-Specific Confirmation**, not a finding of guaranteed eligibility or a documented violation. Official event rules remain authoritative if they add a narrower requirement. A direct organizer clarification is optional additional assurance, not a prerequisite for bounded infrastructure preparation. Read-only rule checks and the root AGENTS pre-kickoff boundary still apply; competition-specific core functionality must be developed in the permitted window. See O-07 in [requirements](REQUIREMENTS_TRACEABILITY.md).
+
+AIG remains pinned and unchanged at v0.2.0 / `7261fdd2f47d2b15fabe8faac527eeee37338eb1`. Preserve attribution and the applicable MIT copyright/license notices. No organizer contact, enrollment, terms acceptance or license publication occurred in Phase 0. If a future official event rule expressly disallows AIG, document the conflict and follow the governing repository instructions rather than claiming eligibility or silently concealing/removing the dependency.
 
 ## Differentiation without unsupported competitor claims
 

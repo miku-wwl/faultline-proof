@@ -12,7 +12,7 @@ Single private operator session supports real approval/authorization; public vis
 
 ## Preconditions before provisioning
 
-Recheck O-01–O-07 in [requirements](REQUIREMENTS_TRACEABILITY.md), current permitted implementation window, organizer reuse interpretation, user authorization and live Vultr prices. Confirm account access/credit eligibility, billing exposure, region/SKU, domain/DNS control, operator identity, approved duration and shutdown owner. No enrollment, login, terms acceptance or credentials changes are implied by this document.
+Recheck O-01–O-07 in [requirements](REQUIREMENTS_TRACEABILITY.md), current permitted implementation window, official event rules, user authorization and live Vultr prices. General lablab.ai guidance generally permits existing open-source infrastructure dependencies such as pinned AIG, subject to event-specific rules; the current reuse risk is LOW — pending event-specific confirmation. Organizer clarification is optional additional assurance and does not gate bounded infrastructure preparation. Confirm account access/credit eligibility, billing exposure, region/SKU, domain/DNS control, operator identity, approved duration and shutdown owner before provisioning. No enrollment, login, terms acceptance or credentials changes are implied by this document.
 
 Proposed **approval ceilings**, not price quotes: USD 30 VM/storage/network, USD 10 inference, USD 10 contingency, USD 50 total until a specified shutdown time. The user must approve actual resource/call scope and amounts. Credits are not proof of zero charges or a confirmed entitlement. Quote actual hourly/monthly/resource/subscription charges before spend; reject a plan that exceeds the approved ceiling. If provider spend enforcement is not hard, state this explicitly and use conservative local request caps plus operator monitoring; do not call a budget alert a provider-enforced hard stop.
 
@@ -64,7 +64,7 @@ Budgets are focused engineering estimates for one developer: **46 h + 10 h conti
 
 | Phase / target | Scope and dependencies | Deliverables and acceptance evidence | Failure / cut rule | Budget |
 |---|---|---|---|---|
-| P0 / Nov 4 | Window/reuse/budget approval; VM+inference+HTTPS | Genuine model response, installed own-env AIG pin, harmless sandbox+cleanup, external HTTPS | Missing auth/model/resource controls or billing approval -> BLOCKED; no UI polish | 6 h |
+| P0 / Nov 4 | Permitted window; operation-specific budget approval; VM+inference+HTTPS | Genuine model response, installed own-env AIG pin, harmless sandbox+cleanup, external HTTPS | Missing auth/model/resource controls or billing approval -> BLOCKED; unresolved reuse confirmation alone does not block bounded infrastructure preparation; no UI polish | 6 h |
 | P1 / Nov 4–5 | P0 passes; baseline fixture only | Frozen image/vector/harness; 200-sample degraded baseline; qualification reference and raw outcomes | Failure not reproducible -> revise fixture/version before P2; cut optional incidents | 7 h |
 | P2 / Nov 5–6 | Qualified fixture + exact public AIG API | Real proposal/frozen diff; human gates; atomic HELD enqueue/release; candidate replay and receipt/persistence tests | Unknown/duplicate/approval gap -> stop; cut all repair revision loops | 12 h |
 | P3 / Nov 6–7 | Working bounded trial | CT-01–10, crash/ACK matrix, actual lifecycle counts, honest FAIL/INCONCLUSIVE and teardown | Any leak/forbidden effect blocks live demo; cut extra scenario products | 8 h |

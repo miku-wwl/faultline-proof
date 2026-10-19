@@ -82,7 +82,7 @@
   "documentation_checks": {
     "markdown_files": 13,
     "new_markdown_files": 10,
-    "local_file_links_checked": 29,
+    "local_file_links_checked": 32,
     "json_fences_parsed": 3,
     "git_diff_check_exit_code": 0,
     "protected_files": {
@@ -111,27 +111,19 @@
     "docs/ADRs/ADR-009-TRIAL-EXECUTION-CONTRACT.md": "49783b142289c2bf49cf9a54f0a901b94087ba6907432dd19de3342137e8aaf0",
     "docs/AIG_VERSION_DECISION.md": "2f24bc44d5a5ccb8aaea8fece2487eeec4101126a779bf8c53b64f7ad72ce1ce",
     "docs/DEMO_SCRIPT.md": "0d7490dbe8449936fe82a192f14087a778516626a96ca5052453c5687d153ddf",
-    "docs/DEPLOYMENT_RUNBOOK.md": "9abd0738e060b33120a714c2852eb7946040ab4859764d26c1d9d819fee576a5",
+    "docs/DEPLOYMENT_RUNBOOK.md": "9d4ceb7ac648356b92f37606e083163df08055b1327c02bbc226c0fa8b389d68",
     "docs/INCIDENT_FIXTURE_SPEC.md": "b1be2db867cc33bef8d4989fa3c74d212672577a6be7ddb58ad124ac9b221f5d",
     "docs/MASTER_DESIGN.md": "3aeb140bd8c26640706205b51a82ae091aa528c05e22fb9f4caaaa253322bc97",
-    "docs/ORIGINALITY_AND_REUSE.md": "fd311788cb824bfbcb42d72bbfac2a54aca5999b9c1c5dab02acfac898fc6635",
+    "docs/ORIGINALITY_AND_REUSE.md": "d49127db00299ea600449a5a8d2236509c005f3f806cde380315180c6713a048",
     "docs/PHASE_REPORTS/evidence/P0_DESIGN_INSPECTION.md": "4e3f2cd42048d4d18dded31e905d2d80e52f47c577db74c2295e157a73370b95",
-    "docs/PHASE_REPORTS/P0_DESIGN_REPORT.md": "eba3807159facb8025029e0b1de9377483e715b9ff12fbf3c1577e78c51567c8",
-    "docs/REQUIREMENTS_TRACEABILITY.md": "90bedc459d477d9be95806283864a828bf9199522e25237ce98dfe0423feb27c",
+    "docs/PHASE_REPORTS/P0_DESIGN_REPORT.md": "bc4b8da4e2e12519f22a63b739719e5a69ddd7a8206469015a37ece041907221",
+    "docs/REQUIREMENTS_TRACEABILITY.md": "2d40ec0b27b621bfcf28595628f04a93592e8568962ccf38606e6c501854e827",
     "docs/THREAT_MODEL.md": "d671bf5febe270807f292e13e37e241baca7bc134f568a103662415bf8849ed9"
   },
   "git_status_before_validation_record_write": [
-    " M docs/MASTER_DESIGN.md",
-    "?? docs/ADRs/ADR-009-TRIAL-EXECUTION-CONTRACT.md",
-    "?? docs/AIG_VERSION_DECISION.md",
-    "?? docs/DEMO_SCRIPT.md",
-    "?? docs/DEPLOYMENT_RUNBOOK.md",
-    "?? docs/INCIDENT_FIXTURE_SPEC.md",
-    "?? docs/ORIGINALITY_AND_REUSE.md",
-    "?? docs/PHASE_REPORTS/P0_DESIGN_REPORT.md",
-    "?? docs/PHASE_REPORTS/evidence/P0_DESIGN_INSPECTION.md",
-    "?? docs/PHASE_REPORTS/evidence/P0_DOCUMENT_VALIDATION.json",
-    "?? docs/REQUIREMENTS_TRACEABILITY.md",
-    "?? docs/THREAT_MODEL.md"
+    " M docs/DEPLOYMENT_RUNBOOK.md",
+    " M docs/ORIGINALITY_AND_REUSE.md",
+    " M docs/PHASE_REPORTS/P0_DESIGN_REPORT.md",
+    " M docs/REQUIREMENTS_TRACEABILITY.md"
   ]
 }
